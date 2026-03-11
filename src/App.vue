@@ -22,8 +22,10 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div class="clock-container" data-tauri-drag-region>
-    <span class="time" data-tauri-drag-region>{{ time }}</span>
+  <div class="widget">
+    <div class="clock-container" data-tauri-drag-region>
+      <span class="time" data-tauri-drag-region>{{ time }}</span>
+    </div>
   </div>
 </template>
 
@@ -42,6 +44,13 @@ html, body, #app {
 </style>
 
 <style scoped>
+.widget {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
 .clock-container {
   width: 100%;
   height: 100%;
@@ -51,7 +60,6 @@ html, body, #app {
   background: rgba(30, 30, 30, 0.75);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-radius: 16px;
   cursor: grab;
   user-select: none;
 }

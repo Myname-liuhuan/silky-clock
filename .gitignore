@@ -26,6 +26,8 @@ dist-ssr
 # Tauri
 src-tauri/target/
 src-tauri/.cargo/
+src-tauri/Cargo.lock
+src-tauri/Cargo.toml
 
 .claude
 claude.md
@@ -34,3 +36,5 @@ package-lock.json
 yarn.lock
 pnpm-lock.yaml
 lerna-lock.yaml
+
+*.exe
