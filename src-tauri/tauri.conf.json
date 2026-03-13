@@ -14,8 +14,8 @@
       {
         "title": "silky-clock",
         "label": "main",
-        "width": 260,
-        "height": 100,
+        "width": 240,
+        "height": 130,
         "decorations": false,
         "transparent": true,
         "alwaysOnTop": true,
