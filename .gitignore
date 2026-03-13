@@ -27,7 +27,6 @@ dist-ssr
 src-tauri/target/
 src-tauri/.cargo/
 src-tauri/Cargo.lock
-src-tauri/Cargo.toml
 
 .claude
 claude.md
