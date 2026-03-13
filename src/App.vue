@@ -230,7 +230,7 @@ html, body, #app {
   width: 100%;
   height: 100%;
   background: transparent;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Inter', sans-serif;
   /* Disable text selection globally */
   -webkit-user-select: none;
   -moz-user-select: none;

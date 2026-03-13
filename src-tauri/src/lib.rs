@@ -108,21 +108,22 @@ pub fn run() {
             // Set window background color to transparent for macOS
             #[cfg(target_os = "macos")]
             if let Some(window) = app.get_webview_window("main") {
-                use cocoa::appkit::{NSColor, NSWindow, NSView};
-                use cocoa::base::{id, nil};
+                use objc2::msg_send;
+                use objc2::runtime::AnyObject;
+                use objc2_app_kit::NSColor;
 
-                let ns_window = window.ns_window().unwrap() as id;
+                let ns_window = window.ns_window().unwrap() as *mut AnyObject;
                 unsafe {
                     // Set the window to be non-opaque
-                    ns_window.setOpaque_(false);
+                    let _: () = msg_send![ns_window, setOpaque: false];
 
                     // Set the window background to clear (transparent)
-                    let clear_color = NSColor::clearColor(nil);
-                    ns_window.setBackgroundColor_(clear_color);
+                    let clear_color = NSColor::clearColor();
+                    let _: () = msg_send![ns_window, setBackgroundColor: &*clear_color];
 
                     // Ensure the content view supports transparency
-                    let content_view = ns_window.contentView();
-                    content_view.setWantsLayer(true);
+                    let content_view: *mut AnyObject = msg_send![ns_window, contentView];
+                    let _: () = msg_send![content_view, setWantsLayer: true];
                 }
             }
 
