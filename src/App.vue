@@ -374,11 +374,7 @@ html, body, #app {
 /* 背景光晕 */
 .glow-orb {
   position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 120%;
-  height: 100%;
+  inset: 0;
   background: radial-gradient(
     ellipse at center,
     rgba(120, 180, 255, 0.15) 0%,
@@ -410,11 +406,9 @@ html, body, #app {
 @keyframes breathe {
   0%, 100% {
     opacity: 0.6;
-    transform: translateX(-50%) scale(1);
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.1);
   }
 }
 
