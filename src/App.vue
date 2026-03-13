@@ -133,6 +133,7 @@ onUnmounted(() => {
       fixed: !isDraggable,
       'click-through': isClickThrough,
     }"
+    :data-tauri-drag-region="isDraggable ? true : undefined"
     @mouseenter="handleMouseEnter"
     @mouseleave="handleMouseLeave"
     @contextmenu="handleContextMenu"
@@ -440,6 +441,7 @@ html, body, #app {
   display: flex;
   align-items: center;
   line-height: 1;
+  pointer-events: none;
 }
 
 .time-segment {
@@ -452,6 +454,7 @@ html, body, #app {
     0 2px 4px rgba(0, 0, 0, 0.3);
   min-width: 58px;
   text-align: center;
+  pointer-events: none;
 }
 
 .widget.fixed .time-segment {
@@ -472,6 +475,7 @@ html, body, #app {
   color: rgba(255, 255, 255, 0.7);
   margin: 0 2px;
   animation: blink 1s ease-in-out infinite;
+  pointer-events: none;
 }
 
 @keyframes blink {
@@ -492,6 +496,7 @@ html, body, #app {
     transparent 100%
   );
   margin: 2px 0;
+  pointer-events: none;
 }
 
 .widget.fixed .divider {
@@ -522,6 +527,7 @@ html, body, #app {
   flex-direction: column;
   align-items: center;
   gap: 1px;
+  pointer-events: none;
 }
 
 .weekday {
@@ -530,6 +536,7 @@ html, body, #app {
   color: rgba(120, 180, 255, 0.9);
   letter-spacing: 2px;
   text-transform: uppercase;
+  pointer-events: none;
 }
 
 .widget.fixed .weekday {
@@ -545,6 +552,7 @@ html, body, #app {
   font-weight: 300;
   color: rgba(255, 255, 255, 0.6);
   letter-spacing: 1px;
+  pointer-events: none;
 }
 
 /* 秒点指示器 */
@@ -552,6 +560,7 @@ html, body, #app {
   display: flex;
   gap: 4px;
   margin-top: 4px;
+  pointer-events: none;
 }
 
 .dot {
@@ -560,6 +569,7 @@ html, body, #app {
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.2);
   transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .dot.active {
