@@ -230,6 +230,11 @@ html, body, #app {
   height: 100%;
   background: transparent;
   font-family: 'Space Grotesk', sans-serif;
+  /* Disable text selection globally */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 </style>
 
@@ -254,6 +259,10 @@ html, body, #app {
     inset 0 1px 0 rgba(255, 255, 255, 0.2),
     inset 0 -1px 0 rgba(255, 255, 255, 0.05);
   cursor: grab;
+  /* Disable text selection */
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   user-select: none;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }

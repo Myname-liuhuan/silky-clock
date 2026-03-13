@@ -105,6 +105,27 @@ pub fn run() {
     tauri::Builder::default()
         .plugin(tauri_plugin_opener::init())
         .setup(|app| {
+            // Set window background color to transparent for macOS
+            #[cfg(target_os = "macos")]
+            if let Some(window) = app.get_webview_window("main") {
+                use cocoa::appkit::{NSColor, NSWindow, NSView};
+                use cocoa::base::{id, nil};
+
+                let ns_window = window.ns_window().unwrap() as id;
+                unsafe {
+                    // Set the window to be non-opaque
+                    ns_window.setOpaque_(false);
+
+                    // Set the window background to clear (transparent)
+                    let clear_color = NSColor::clearColor(nil);
+                    ns_window.setBackgroundColor_(clear_color);
+
+                    // Ensure the content view supports transparency
+                    let content_view = ns_window.contentView();
+                    content_view.setWantsLayer(true);
+                }
+            }
+
             // Setup menu event handler
             app.on_menu_event(|app, event| {
                 match event.id.as_ref() {
